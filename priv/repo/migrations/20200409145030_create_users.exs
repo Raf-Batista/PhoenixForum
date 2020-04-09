@@ -3,7 +3,8 @@ defmodule PhoenixForum.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-
+      add :email, :string
+      
       timestamps()
     end
 

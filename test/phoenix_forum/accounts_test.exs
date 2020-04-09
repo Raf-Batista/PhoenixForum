@@ -6,9 +6,9 @@ defmodule PhoenixForum.AccountsTest do
   describe "users" do
     alias PhoenixForum.Accounts.User
 
-    @valid_attrs %{}
-    @update_attrs %{}
-    @invalid_attrs %{}
+    @valid_attrs %{email: "test@email.com"}
+    @update_attrs %{email: "updated@emaillcom"}
+    @invalid_attrs %{email: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -31,6 +31,7 @@ defmodule PhoenixForum.AccountsTest do
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
+      assert user.email == "test@email.com"
     end
 
     test "create_user/1 with invalid data returns error changeset" do
