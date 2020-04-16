@@ -5,6 +5,7 @@ defmodule PhoenixForum.Posts.Topic do
   schema "topics" do
     field :title, :string
     field :content, :string
+    belongs_to :user, User
 
     timestamps()
   end
