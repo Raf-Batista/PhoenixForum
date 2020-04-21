@@ -1,1 +1,6 @@
-<h1 class="text-center">Home Page</h1>
+<h1 class="text-center my-2">Welcome to PhoenixForum</h1>
+<div class="text-center">
+    <span>Log in or signup</span>
+    <a href="#" class="d-block">FaceBook</a>
+    <a href="#" class="d-block">Twitter</a>
+</div>
