@@ -28,25 +28,14 @@ config :phoenix, :json_library, Jason
 
 config :ueberauth, Ueberauth,
   providers: [
-    facebook: { 
-      Ueberauth.Strategy.Facebook, [ 
-        client_id: System.get_env("FACEBOOK_CLIENT_ID"),
-        client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")
-      ] 
-    },
-    twitter: { 
-      Ueberauth.Strategy.Github, [ 
-        client_id: System.get_env("TWITTER_CLIENT_ID"),
-        client_secret: System.get_env("TWITTER_CLIENT_SECRET")
-      ] 
-    },
-    github: { 
-      Ueberauth.Strategy.Github, [ 
-        client_id: System.get_env("GITHUB_CLIENT_ID"),
-        client_secret: System.get_env("GITHUB_CLIENT_SECRET")
-      ] 
-    }
+    facebook: { Ueberauth.Strategy.Facebook, [] },
+    twitter: { Ueberauth.Strategy.Github, [] },
+    github: { Ueberauth.Strategy.Github, [] }
   ]
+
+  config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+  client_id: System.get_env("FACEBOOK_CLIENT_ID"),
+  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
