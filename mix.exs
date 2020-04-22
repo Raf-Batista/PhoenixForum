@@ -20,7 +20,14 @@ defmodule PhoenixForum.MixProject do
   def application do
     [
       mod: {PhoenixForum.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [
+        :logger, 
+        :runtime_tools, 
+        :ueberauth, 
+        :ueberauth_facebook, 
+        :ueberauth_twitter,
+        :ueberauth_github
+      ]
     ]
   end
 
@@ -42,7 +49,11 @@ defmodule PhoenixForum.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:ueberauth, "~> 0.6"},
+      {:ueberauth_facebook, "~> 0.8"},
+      {:ueberauth_twitter, "~> 0.3"},
+      {:ueberauth_github, "~> 0.7"}
     ]
   end
 
