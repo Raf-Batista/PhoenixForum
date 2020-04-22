@@ -45,6 +45,7 @@ config :ueberauth, Ueberauth,
         client_id: System.get_env("GITHUB_CLIENT_ID"),
         client_secret: System.get_env("GITHUB_CLIENT_SECRET")
       ] 
+    }
   ]
 
 # Import environment specific config. This must remain at the bottom
