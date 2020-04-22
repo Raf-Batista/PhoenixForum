@@ -1,3 +1,8 @@
 /* This file is for your main application css. */
 
 /* @import "./phoenix.css"; */
+
+.paragraph { /* will include whitespace and new line*/
+    white-space: pre-wrap;
+    margin-left: 16em;
+}
