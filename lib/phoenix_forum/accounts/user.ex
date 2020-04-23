@@ -7,6 +7,9 @@ defmodule PhoenixForum.Accounts.User do
 
   schema "users" do
     field :email, :string
+    field :token, :string 
+    field :provider, :string
+    field :name, :string
     has_many :topics, Topic
     has_many :comments, Comment
 
@@ -16,7 +19,7 @@ defmodule PhoenixForum.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email])
-    |> validate_required([:email])
+    |> cast(attrs, [:email, :token, :provider, :name])
+    |> validate_required([:email, :token, :provider, :name])
   end
 end
