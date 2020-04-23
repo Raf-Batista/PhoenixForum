@@ -19,7 +19,7 @@ defmodule PhoenixForumWeb.Router do
     get "/", PageController, :index
   end
 
-  scope "/auth", MyApp do
+  scope "/auth", PhoenixForumWeb do
     pipe_through :browser
   
     get "/:provider", AuthController, :request

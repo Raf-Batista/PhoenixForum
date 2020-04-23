@@ -27,6 +27,8 @@
         </div>
     </nav>
     <div class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </div>
     <script src="https://kit.fontawesome.com/606d3533c3.js"></script>
