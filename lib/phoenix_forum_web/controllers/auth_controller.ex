@@ -21,7 +21,7 @@ defmodule PhoenixForumWeb.AuthController do
 
         user_changeset = Accounts.User.changeset(%Accounts.User{}, user_params)
     
-        case find_or_create_user(user_changeset.changes) do 
+        case find_or_create_user(user_changeset) do 
             {:ok, user} -> 
                 conn
                 |> put_flash(:info, "Welcome back!")
@@ -35,7 +35,7 @@ defmodule PhoenixForumWeb.AuthController do
     end 
 
     defp find_or_create_user(changeset) do 
-      case Accounts.get_user_by(email: changeset.email) do
+      case Accounts.get_user_by(email: changeset.changes.email) do
         nil -> Accounts.create_user(changeset) 
         user -> {:ok, user}
       end
