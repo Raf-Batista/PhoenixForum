@@ -12,14 +12,16 @@ defmodule PhoenixForumWeb.AuthController do
     end
 
     def callback(%{assigns: %{ueberauth_auth: user}} = conn, _params) do 
-        user_changeset = %{
+        user_params = %{
             name: user.info.name, 
             email: user.info.email, 
             provider: to_string(user.provider), 
             token: user.extra.raw_info.token.access_token
         }
 
-        case find_or_create_user(user_changeset) do 
+        user_changeset = Accounts.User.changeset(%Accounts.User{}, user_params)
+    
+        case find_or_create_user(user_changeset.changes) do 
             {:ok, user} -> 
                 conn
                 |> put_flash(:info, "Welcome back!")
