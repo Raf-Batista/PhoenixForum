@@ -32,6 +32,7 @@ defmodule PhoenixForumWeb.AuthController do
           |> put_flash(:info, "Error, Error")
           |> redirect(to: Routes.page_path(conn, :index))
       end     
+      
     end 
 
     def signout(conn, _params) do 

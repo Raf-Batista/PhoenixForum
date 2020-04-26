@@ -26,6 +26,7 @@
             <%= if @conn.assigns[:user] do %>
               <li class="nav-item">
                 <%= link "Sign out", to: Routes.auth_path(@conn, :signout), class: "nav-link" %>
+              </li>
             <% end%>
           </ul>
         </div>

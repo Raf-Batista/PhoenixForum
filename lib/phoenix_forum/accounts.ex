@@ -105,4 +105,8 @@ defmodule PhoenixForum.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  def get_user_topics_and_comments(user) do 
+    Repo.preload user, [:topics, :comments]
+  end 
 end
