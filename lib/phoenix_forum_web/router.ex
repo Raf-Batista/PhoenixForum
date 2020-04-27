@@ -23,7 +23,7 @@ defmodule PhoenixForumWeb.Router do
       resources "/topics", TopicController, only: [:index, :show] 
     end 
 
-    resources "/topics", TopicController, except: [:index, :show] do 
+    resources "/topics", TopicController do 
       resources "/comments", CommentController
     end 
   end
