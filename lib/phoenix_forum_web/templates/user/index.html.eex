@@ -1,0 +1,7 @@
+<ul class="list-group"> 
+    <%= for t <- @topics do %>
+      <li class="list-group-item">
+        <%= t.title%>
+      </li>
+    <% end %>
+</ul>
