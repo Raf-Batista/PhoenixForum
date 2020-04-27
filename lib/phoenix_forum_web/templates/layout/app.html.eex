@@ -18,11 +18,11 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Posts</a>
+              <%= link "Posts", to: Routes.topic_path(@conn, :index), class: "nav-link" %>
             </li>
              <%= if @conn.assigns[:user] do %>
               <li class="nav-item">
-                <%= link "Account", to: Routes.user_path(@conn, :show, @conn.assigns.user.id), class: "nav-link"%>
+                <%= link "Account", to: Routes.user_path(@conn, :show, @conn.assigns.user.id), class: "nav-link" %>
               </li>
             <% end %>  
             <%= if @conn.assigns[:user] do %>

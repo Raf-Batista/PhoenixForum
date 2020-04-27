@@ -37,6 +37,8 @@ defmodule PhoenixForum.Posts do
   """
   def get_topic!(id), do: Repo.get!(Topic, id)
 
+  def get_topic(id), do: Repo.get(Topic, id)
+
   @doc """
   Creates a topic.
 

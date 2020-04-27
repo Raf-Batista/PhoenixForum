@@ -20,7 +20,6 @@ defmodule PhoenixForumWeb.Router do
     get "/", PageController, :index
     
     resources "/users", UserController do 
-      resources "/topics", TopicController, only: [:index, :show] 
     end 
 
     resources "/topics", TopicController do 
