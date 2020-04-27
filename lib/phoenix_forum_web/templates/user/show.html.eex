@@ -5,7 +5,10 @@
   <%= @user.email%>
 
   <label class="d-block">Topics: </label>
-  <%= for t <- @user.topics do %>
-    <%= t.title%>
-  <% end %>
-</div>
+<ul class="list-group"> 
+    <%= for t <- @user.topics do %>
+      <li class="list-group-item">
+        <%= link t.title, to: Routes.topic_path(@conn, :show, t.id, topic: t ) %>
+      </li>
+    <% end %>
+</ul>

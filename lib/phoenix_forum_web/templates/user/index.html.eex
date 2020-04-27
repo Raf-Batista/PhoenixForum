@@ -1,7 +1,0 @@
-<ul class="list-group"> 
-    <%= for t <- @topics do %>
-      <li class="list-group-item">
-        <%= link t.title, to: Routes.topic_path(@conn, :show, 1, topic: t ) %>
-      </li>
-    <% end %>
-</ul>
