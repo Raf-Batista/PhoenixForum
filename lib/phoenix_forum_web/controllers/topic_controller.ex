@@ -56,4 +56,12 @@ defmodule PhoenixForumWeb.TopicController do
         |> render "edit.html", topic: topic
     end 
    end 
+
+   def delete(conn, %{"id" => id}) do 
+    Posts.Topic!(id)
+     
+    conn
+    |> put_flash(:info, "Topic Deleted")
+    |> redirect(to: topic_path(conn, :index))
+   end 
 end 
