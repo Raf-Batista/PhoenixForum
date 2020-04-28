@@ -16,4 +16,10 @@ defmodule PhoenixForumWeb.TopicController do
 
     render conn, "index.html", topics: topics
   end 
+
+  def new(conn, _params) do 
+    changeset = Posts.Topic.changeset(%Posts.Topic{}, %{}) 
+    
+    render conn, "new.html", changeset: changeset
+  end 
 end 
