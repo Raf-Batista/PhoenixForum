@@ -41,4 +41,19 @@ defmodule PhoenixForumWeb.TopicController do
 
     render conn, "edit.html", changeset: changeset, topic: topic
   end 
+
+  def update(conn, params) do 
+    topic = Posts.get_topic(params["id"])
+
+    case Posts.update_topic(topic, params["topic"]) do 
+      {:ok, topic} -> 
+        conn
+        |> put_flash(:info, "Topic updated successfully")
+        |> redirect(to: Routes.topic_path(conn, :show, topic))
+      {:error, _reason} -> 
+        conn
+        |> put_flash(:info, "An error occured")
+        |> render "edit.html", topic: topic
+    end 
+   end 
 end 
