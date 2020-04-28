@@ -58,7 +58,7 @@ defmodule PhoenixForumWeb.TopicController do
    end 
 
    def delete(conn, %{"id" => id}) do 
-    Posts.get_topic!(id)
+    Posts.get_topic!(id) |> Posts.delete_topic
      
     conn
     |> put_flash(:info, "Topic Deleted")
