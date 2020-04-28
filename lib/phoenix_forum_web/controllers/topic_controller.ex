@@ -3,11 +3,10 @@ defmodule PhoenixForumWeb.TopicController do
 
   alias PhoenixForum.Posts
 
-  def show(conn, params) do 
-    topic = Posts.get_topic(params["id"])
+  def show(conn, %{"id" => id}) do 
+    topic = Posts.get_topic(id)
     topic = Posts.get_user_and_comments(topic)
 
-    IO.inspect(topic)
     render conn, "show.html", topic: topic
   end 
 
@@ -34,5 +33,12 @@ defmodule PhoenixForumWeb.TopicController do
         |> put_flash(:info, "An Error occured")
         |> render "new.html", changeset: changeset
       end
+  end 
+
+  def edit(conn, %{"id" => id}) do 
+    topic = Posts.get_topic(id)
+    changeset = Posts.Topic.changeset(%Posts.Topic{}, Ecto.embedded_dump(topic, :map))
+
+    render conn, "edit.html", changeset: changeset, topic: topic
   end 
 end 
