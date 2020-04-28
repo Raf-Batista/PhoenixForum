@@ -1,26 +1,10 @@
 <h1 class="text-center my-2">Welcome to PhoenixForum</h1>
 <div class="text-center">
-    <h4 class="d-block">Log in or signup below</h4>
-    <a href="/auth/facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"class="ml-2"><i class="fab fa-twitter"></i></a>
-    <%# <span>Check out the latest posts</span>
-    <div class="container my-3">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="#" >Post</a href="#">
-            </li>
-             <li class="list-group-item">
-                <a href="#" >Post</a href="#">
-            </li>
-             <li class="list-group-item">
-                <a href="#" >Post</a href="#">
-            </li>
-             <li class="list-group-item">
-                <a href="#" >Post</a href="#">
-            </li>
-        </ul>
-    </div> %>
-
+    <%= if !@conn.assigns.user do %>
+      <h4 class="d-block">Log in or signup below</h4>
+      <a href="/auth/facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"class="ml-2"><i class="fab fa-twitter"></i></a>
+    <% end %>  
 </div>
     <div class="paragraph d-sm-none d-lg-block">
         # This is a forum for all things Phoenix, Elixir, and functional programming.  
