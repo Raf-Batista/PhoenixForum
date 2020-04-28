@@ -57,6 +57,13 @@ defmodule PhoenixForum.Posts do
     |> Repo.insert()
   end
 
+  def create_topic_for(user, params) do 
+    user
+    |> Ecto.build_assoc(:topics)
+    |> Topic.changeset(params)
+    |> Repo.insert()
+  end 
+
   @doc """
   Updates a topic.
 

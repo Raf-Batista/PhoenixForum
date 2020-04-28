@@ -22,4 +22,17 @@ defmodule PhoenixForumWeb.TopicController do
     
     render conn, "new.html", changeset: changeset
   end 
+
+  def create(conn, %{"topic" => topic}) do 
+    case Posts.create_topic_for(conn.assigns.user, topic) do 
+      {:ok, _topic} -> 
+        conn
+        |> put_flash(:info, "Topic created")
+        |> redirect(to: Routes.topic_path(conn, :index))
+      {:error, changeset} -> 
+        conn 
+        |> put_flash(:info, "An Error occured")
+        |> render "new.html", changeset: changeset
+      end
+  end 
 end 
