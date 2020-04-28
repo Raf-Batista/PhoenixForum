@@ -1,14 +1,13 @@
 <h1>Account</h1>
 
-<div>
-  <label>Email: </label> 
-  <%= @user.email%>
+<label>Email: </label> 
+<%= @user.email%>
 
-  <label class="d-block">Topics: </label>
+<label class="d-block">Topics: </label>
 <ul class="list-group"> 
-    <%= for t <- @user.topics do %>
-      <li class="list-group-item">
-        <%= link t.title, to: Routes.topic_path(@conn, :show, t.id, topic: t ) %>
-      </li>
-    <% end %>
+  <%= for t <- @user.topics do %>
+    <li class="list-group-item">
+      <%= link t.title, to: Routes.topic_path(@conn, :show, t.id) %>
+    </li>    
+  <% end %>
 </ul>
