@@ -58,10 +58,10 @@ defmodule PhoenixForumWeb.TopicController do
    end 
 
    def delete(conn, %{"id" => id}) do 
-    Posts.Topic!(id)
+    Posts.get_topic!(id)
      
     conn
     |> put_flash(:info, "Topic Deleted")
-    |> redirect(to: topic_path(conn, :index))
+    |> redirect(to: Routes.topic_path(conn, :index))
    end 
 end 

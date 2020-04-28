@@ -11,3 +11,5 @@
   <% end %>
 </ul>
 
+<%= link "Edit", to: Routes.topic_path(@conn, :edit, @topic) %>
+
