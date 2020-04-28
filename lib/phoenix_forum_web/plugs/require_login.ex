@@ -1,6 +1,6 @@
 defmodule PhoenixForumWeb.RequireLogin do 
     import Plug.Conn
-    use Phoenix.Controller
+    import Phoenix.Controller
 
     alias PhoenixForumWeb.Router.Helpers, as: Routes
 

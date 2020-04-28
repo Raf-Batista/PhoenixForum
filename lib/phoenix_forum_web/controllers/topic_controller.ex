@@ -1,6 +1,7 @@
 defmodule PhoenixForumWeb.TopicController do 
   use PhoenixForumWeb, :controller 
   plug PhoenixForumWeb.RequireLogin when action in [:new, :create, :edit, :update, :delete]
+  plug PhoenixForumWeb.RequireAuth when action in [:edit, :update, :delete]
 
   alias PhoenixForum.Posts
 
