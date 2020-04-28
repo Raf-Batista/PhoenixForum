@@ -26,7 +26,7 @@ defmodule PhoenixForumWeb.AuthController do
           conn
           |> put_flash(:info, "Welcome back!")
           |> put_session(:user_id, user.id)
-          |> redirect(to: Routes.user_path(conn, :index))
+          |> redirect(to: Routes.topic_path(conn, :index))
         {:error, _reason} -> 
           conn 
           |> put_flash(:info, "Error, Error")
