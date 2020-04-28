@@ -1,0 +1,13 @@
+<h2><%= @topic.title %></h2>
+<small>Post by: <%= @topic.user.email %></small>
+
+<p><%= @topic.content %></p>
+
+<ul class="list-group">
+  <%= for c <- @topic.comments do %>
+    <li class="list-group-item">
+      <%= c.content %>
+    </li>
+  <% end %>
+</ul>
+

@@ -5,7 +5,9 @@ defmodule PhoenixForumWeb.TopicController do
 
   def show(conn, params) do 
     topic = Posts.get_topic(params["id"])
+    topic = Posts.get_user_and_comments(topic)
 
+    IO.inspect(topic)
     render conn, "show.html", topic: topic
   end 
 

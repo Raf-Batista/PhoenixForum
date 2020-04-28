@@ -199,4 +199,8 @@ defmodule PhoenixForum.Posts do
   def change_comment(%Comment{} = comment) do
     Comment.changeset(comment, %{})
   end
+
+  def get_user_and_comments(topic) do 
+    Repo.preload topic, [:user, :comments]
+  end 
 end
