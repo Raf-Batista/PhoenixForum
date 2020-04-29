@@ -8,8 +8,9 @@ defmodule PhoenixForumWeb.TopicController do
   def show(conn, %{"id" => id}) do 
     topic = Posts.get_topic(id)
     topic = Posts.get_user_and_comments(topic)
+    changeset = Posts.Comment.changeset(%Posts.Comment{}, %{})
 
-    render conn, "show.html", topic: topic
+    render conn, "show.html", topic: topic, changeset: changeset
   end 
 
   def index(conn, _params) do 

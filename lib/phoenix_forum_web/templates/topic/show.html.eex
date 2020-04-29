@@ -1,7 +1,16 @@
 <h2><%= @topic.title %></h2>
-<small>Post by: <%= @topic.user.email %></small>
+<span>Post by: <%= @topic.user.email %></span>
+
+<%= link "Edit", to: Routes.topic_path(@conn, :edit, @topic), class: "mx-3" %>
+<%= link "Delete", to: Routes.topic_path(@conn, :delete, @topic), method: :delete %>
 
 <p><%= @topic.content %></p>
+
+<%= form_for @changeset, Routes.topic_comment_path(@conn, :create, @topic), fn f -> %>
+  <div class="form-group">
+  <%= text_input f, :content, placeholder: "Leave a comment", class: "form-control" %>
+  <%= error_tag f, :content%>
+<% end %>
 
 <ul class="list-group">
   <%= for c <- @topic.comments do %>
@@ -11,6 +20,5 @@
   <% end %>
 </ul>
 
-<%= link "Edit", to: Routes.topic_path(@conn, :edit, @topic), class: "mr-3"%>
-<%= link "Delete", to: Routes.topic_path(@conn, :delete, @topic), method: :delete %>
+
 
