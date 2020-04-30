@@ -8,14 +8,18 @@
 
 <%= form_for @changeset, Routes.topic_comment_path(@conn, :create, @topic), fn f -> %>
   <div class="form-group">
-  <%= text_input f, :content, placeholder: "Leave a comment", class: "form-control" %>
-  <%= error_tag f, :content%>
+    <%= text_input f, :content, placeholder: "Leave a comment", class: "form-control" %>
+    <%= error_tag f, :content%>
+  </div>
+
+  <%= submit "Add Comment", class: "btn btn-primary my-3"%>
 <% end %>
 
 <ul class="list-group">
   <%= for c <- @topic.comments do %>
     <li class="list-group-item">
-      <%= c.content %>
+      <span class="mx-2"><%= c.content %>:</span>
+      <span><%= c.user.name %></span>
     </li>
   <% end %>
 </ul>

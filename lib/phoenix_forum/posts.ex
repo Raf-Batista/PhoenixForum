@@ -7,6 +7,7 @@ defmodule PhoenixForum.Posts do
   alias PhoenixForum.Repo
 
   alias PhoenixForum.Posts.Topic
+  alias PhoenixForum.Posts.Comment
 
   @doc """
   Returns the list of topics.
@@ -61,6 +62,13 @@ defmodule PhoenixForum.Posts do
     user
     |> Ecto.build_assoc(:topics)
     |> Topic.changeset(params)
+    |> Repo.insert()
+  end 
+
+  def create_comment_for(topic, params, user_id) do 
+    topic 
+    |> Ecto.build_assoc(:comments, user_id: user_id)
+    |> Comment.changeset(params)
     |> Repo.insert()
   end 
 
@@ -208,6 +216,7 @@ defmodule PhoenixForum.Posts do
   end
 
   def get_user_and_comments(topic) do 
-    Repo.preload topic, [:user, :comments]
+    Repo.preload topic, [:user, {:comments, :user}]
   end 
+
 end
