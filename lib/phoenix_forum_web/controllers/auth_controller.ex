@@ -44,7 +44,7 @@ defmodule PhoenixForumWeb.AuthController do
 
     defp find_or_create_user(changeset) do 
       case Accounts.get_user_by(email: changeset.changes.email) do
-        nil -> Accounts.create_user(changeset) 
+        nil -> Accounts.create_user(changeset.changes) 
         user -> {:ok, user}
       end
     end 

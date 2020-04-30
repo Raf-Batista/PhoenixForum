@@ -4,7 +4,7 @@ defmodule PhoenixForum.Repo.Migrations.CreateTopics do
   def change do
     create table(:topics) do
       add :title, :string 
-      add :content, :string
+      add :content, :text
       add :user_id, references(:users, on_delete: :delete_all), null: false
 
       timestamps()
