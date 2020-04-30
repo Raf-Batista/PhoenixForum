@@ -11,7 +11,8 @@ defmodule PhoenixForumWeb.AuthController do
       |> redirect(to: "/")
     end
 
-    def callback(%{assigns: %{ueberauth_auth: user}} = conn, _params) do 
+    def callback(%{assigns: %{ueberauth_auth: user}} = conn, params) do 
+      IO.inspect(params)
       user_params = %{
         name: user.info.name, 
           email: user.info.email, 
@@ -24,7 +25,7 @@ defmodule PhoenixForumWeb.AuthController do
       case find_or_create_user(user_changeset) do 
         {:ok, user} -> 
           conn
-          |> put_flash(:info, "Welcome back!")
+          |> put_flash(:info, "Welcome")
           |> put_session(:user_id, user.id)
           |> redirect(to: Routes.topic_path(conn, :index))
         {:error, _reason} -> 

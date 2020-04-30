@@ -3,7 +3,7 @@
     <%= if !@conn.assigns.user do %>
       <h4 class="d-block">Log in or signup below</h4>
       <a href="/auth/facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"class="ml-2"><i class="fab fa-twitter"></i></a>
+      <a href="/auth/github"class="ml-2"><i class="fab fa-github"></i></a>
     <% end %>  
 </div>
     <div class="paragraph d-sm-none d-lg-block">

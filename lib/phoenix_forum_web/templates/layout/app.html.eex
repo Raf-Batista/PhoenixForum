@@ -25,10 +25,10 @@
                 <%= link "Account", to: Routes.user_path(@conn, :show, @conn.assigns.user.id), class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link "Sign out", to: Routes.auth_path(@conn, :signout), class: "nav-link" %>
+                <%= link "Create Post", to: Routes.topic_path(@conn, :new), class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link "Create Post", to: Routes.topic_path(@conn, :new), class: "nav-link" %>
+                <%= link "Sign out", to: Routes.auth_path(@conn, :signout), class: "nav-link" %>
               </li>
             <% end %>
           </ul>

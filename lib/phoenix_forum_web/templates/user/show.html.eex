@@ -3,7 +3,7 @@
 <label>Email: </label> 
 <%= @user.email%>
 
-<label class="d-block">Topics: </label>
+<label class="d-block">My Topics: </label>
 <ul class="list-group"> 
   <%= for t <- @user.topics do %>
     <li class="list-group-item">
