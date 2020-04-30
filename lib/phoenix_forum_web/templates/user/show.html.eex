@@ -1,8 +1,9 @@
 <h1>Account</h1>
 
+<!--
 <label>Email: </label> 
-<%= @user.email%>
-
+<%= :crypto.hash(:md5, @user.email) %>
+-->
 <label class="d-block">My Topics: </label>
 <ul class="list-group"> 
   <%= for t <- @user.topics do %>

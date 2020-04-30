@@ -1,25 +1,27 @@
 <h2><%= @topic.title %></h2>
-<span>Post by: <%= @topic.user.email %></span>
+<!-- <span>Post by: <%=# :crypto.hash(:md5, @topic.user.email) %></span> -->
 
 <%= link "Edit", to: Routes.topic_path(@conn, :edit, @topic), class: "mx-3" %>
 <%= link "Delete", to: Routes.topic_path(@conn, :delete, @topic), method: :delete %>
 
 <p><%= @topic.content %></p>
 
-<%= form_for @changeset, Routes.topic_comment_path(@conn, :create, @topic), fn f -> %>
-  <div class="form-group">
-    <%= textarea f, :content, placeholder: "Leave a comment", class: "form-control", rows: "2", cols: "10"%>
-    <%= error_tag f, :content%>
-  </div>
+<%= if @conn.assigns.user do%>
+  <%= form_for @changeset, Routes.topic_comment_path(@conn, :create, @topic), fn f -> %>
+    <div class="form-group">
+      <%= textarea f, :content, placeholder: "Leave a comment", class: "form-control", rows: "2", cols: "10"%>
+      <%= error_tag f, :content%>
+    </div>
 
-  <%= submit "Add Comment", class: "btn btn-primary my-3"%>
+    <%= submit "Add Comment", class: "btn btn-primary my-3"%>
+  <% end %>
 <% end %>
 
 <ul class="list-group mt-4">
   <%= for c <- @topic.comments do %>
     <li class="list-group-item">
-      <span class="mx-2"><%= c.content %>:</span>
-      <small><%= c.user.name %></small>
+      <span class="mx-2"><%= c.content %></span>
+      <small><%= #:crypto.hash(:md5, c.user.name) %></small>
     </li>
   <% end %>
 </ul>

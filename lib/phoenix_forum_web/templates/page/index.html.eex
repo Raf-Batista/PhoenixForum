@@ -6,7 +6,7 @@
       <a href="/auth/github"class="ml-2"><i class="fab fa-github"></i></a>
     <% end %>  
 </div>
-    <div class="paragraph d-sm-none d-lg-block">
+    <%# <div class="paragraph d-sm-none d-lg-block">
         # This is a forum for all things Phoenix, Elixir, and functional programming.  
         
         def create_or_login_to_post(you)
@@ -17,4 +17,4 @@
             |> have_fun()
         end 
     <div> 
-</div>
+</div> %>
