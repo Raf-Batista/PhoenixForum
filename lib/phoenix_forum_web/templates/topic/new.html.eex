@@ -3,7 +3,7 @@
     <%= text_input f, :title, placeholder: "Title", class: "form-control mb-2" %>
     <%= error_tag f, :title %>
 
-     <%= textarea f, :content, placeholder: "Content", class: "form-control topic", rows: 10, cols: 30 %>
+    <%= textarea f, :content, placeholder: "Content", class: "form-control topic", rows: 10, cols: 30 %>
     <%= error_tag f, :content %>
   </div>
 

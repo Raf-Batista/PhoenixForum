@@ -15,7 +15,7 @@
   <%= submit "Add Comment", class: "btn btn-primary my-3"%>
 <% end %>
 
-<ul class="list-group">
+<ul class="list-group mt-4">
   <%= for c <- @topic.comments do %>
     <li class="list-group-item">
       <span class="mx-2"><%= c.content %>:</span>

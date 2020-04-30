@@ -6,3 +6,7 @@
     white-space: pre-wrap;
     margin-left: 16em;
 }
+
+.flash {
+    position: absolute;
+}

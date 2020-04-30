@@ -15,3 +15,9 @@ import "phoenix_html"
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+
+$('.toast').toast({delay: 2000})
+
+$(document).ready(function(){
+    $('.toast').toast('show');
+  });
